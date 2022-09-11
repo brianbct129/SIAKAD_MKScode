@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% set title = 'Users' %}
+{% set page_active = 'Users' %}
+{% block _content %}
+
+<div class="container my-4">
+    <H1>Users</H1>
+    <a class="btn btn-primary" href="{{ url_for('usersapp.users_tambah') }}">Tambah User</a>
+    <div class="container">
+       <div class="container my-4">
+            <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th>Username</th>
+                        <th>Nama lengkap</th>
+                        <th>action</th>
+                    </tr>
+                    {% for user in users %}
+                    <tr>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.nama_lengkap }}</td>
+                        <td>
+                            <a href="{{ url_for('usersapp.user_delete',uid=user.id) }}" class="btn btn-danger btn-sm">Hapus</a>
+                            <a href="{{ url_for('usersapp.users_edit',uid=user.id) }}" class="btn btn-danger btn-sm">Edit</a>
+                            <a href="{{ url_for('usersapp.lihat_users',uid=user.id) }}" class="btn btn-danger btn-sm">Lihat</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+       </div>
+    </div>
+</div>
+
+{% endblock %}

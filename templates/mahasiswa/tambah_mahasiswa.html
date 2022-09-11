@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% set title = 'Tambah Mahasiswa' %}
+{% set page_active = 'Tambah Mahasiswa' %}
+{% block _content %}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Add Students</h1>
+    <p class="mb-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam delectus, saepe suscipit, eum nostrum vel architecto dolores eligendi distinctio expedita exercitationem soluta sed unde, commodi magni nulla ipsa libero ut.</p>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Please Add the Student</h6>
+        </div>
+        <div class="card-body">
+            
+            <div class="text-left">
+                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+            </div>
+            <form class="user" method="POST" enctype = "multipart/form-data">
+                <div class="form-group form-row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <input type="text" class="form-control form-control-user" name="nama_lengkap"
+                            placeholder="Full Name">
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="email" class="form-control form-control-user" name="email"
+                            placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-group form-row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <input type="text" class="form-control form-control-user"
+                            name="jurusan" placeholder="jurusan">
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="number" class="form-control form-control-user"
+                            name="umur" placeholder="umur">
+                    </div>
+                </div>
+                <div class="form-group form-row">
+                    <div class="col-sm-12">
+                        <input type="file" class="form-control pb-5 pt-3" id="image" name="image">
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-user btn-block">
+                    Submit
+                </button>
+                
+            </form>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% set title = 'Edit Users' %}
+{% set page_active = 'Edit Users' %}
+{% block _content %}
+
+<div class="container my-4">
+    <H1>Edit User</H1>
+    
+    <div class="container">
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="nama_lengkap">Nama Lengkap</label>
+                <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" value="{{ data.nama_lengkap }}">
+            </div>
+            <div class="form-group">
+                <label for="Username">Username</label>
+                <input type="text" class="form-control" id="Username" name="Username" value="{{ data.username }}" disabled>
+            </div>
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="email" class="form-control" id="Email" name="Email" value="{{ data.email }}">
+            </div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

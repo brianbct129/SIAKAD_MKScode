@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% set title = 'Daftar Mahasiswa' %}
+{% set page_active = 'Daftar Mahasiswa' %}
+{% block _content %}
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <!-- Page Heading -->
+        <h1 class="h3 mb-0 text-gray-800">Data Mahasiswa</h1>
+            <a href="{{ url_for('mahasiswa_fc.tambah_mhs') }}" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                    class="fas fa-plus fa-sm text-white-50"></i> Tambah Mahasiswa</a>
+
+    </div>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">Tabel Data Mahasiswa</h6>
+            <!-- <div class="dropdown no-arrow">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
+                    aria-labelledby="dropdownMenuLink">
+                    <div class="dropdown-header">Dropdown Header:</div>
+                    <a class="dropdown-item" href="#">Tambah Mahasiswa</a>
+                   
+                </div>
+            </div> -->
+        </div>
+        <div class="card-body">
+            <div class="table-responsive flex-nowrap">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nama</th>
+                            <th>jurusan</th>
+                            <th>email</th>
+                            <th>umur</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for mhs in mahasiswa %}
+                        <tr>
+                            <td class="text-center"><img src="{{ mhs.photoURL or '/gambar/default.jpg' }}" alt="foto" class="img-fluid" width="50"></td>
+                            <td>
+                                {{ mhs.nama_lengkap or '-' }}
+                                {% if mhs.status == 'lulus' %}
+                                <span class="badge badge-success">Lulus</span></td>
+                                {% else %}
+                                <span class="badge badge-danger">Tidak Lulus</span>
+                                {% endif %}
+                            </td>
+                            <td>{{ mhs.jurusan or '-' }}</td>
+                            <td>{{ mhs.email or '-' }}</td>
+                            <td>{{ mhs.umur or '-' }}</td>
+                            <td>
+                                <a href="#" class=""><i class="fas fa-eye fa-sm fa-fw text-gray-400"></i></a>
+                                <a href="#" class=""><i class="fas fa-edit fa-sm fa-fw text-gray-400"></i></a>
+                                <a href="#" class=""><i class="fas fa-trash fa-sm fa-fw text-gray-400"></i></a>
+                            </td>
+                                
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+
+
+
+{% endblock %}
